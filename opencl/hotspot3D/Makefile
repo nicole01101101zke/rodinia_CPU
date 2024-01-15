@@ -26,5 +26,8 @@ hotspot3D.out: 3D.c CL_helper.c ../util/timing.c
 		-I../util -DTIMING \
 		-o $@
 
+run:
+	./hotspot3D.out -n 512 -l 8 -i 500 -f ../../data/hotspot3D/power_512x8 ../../data/hotspot3D/temp_512x8 output.txt $@
+
 clean:
 	rm -f hotspot3D.out $(OUTPUT) 

@@ -35,5 +35,8 @@ hybridsort: hybridsort.c bucketsort.h mergesort.h bucketsort.c mergesort.c
 		-L$(OPENCL_LIB) -lOpenCL -lm \
 		-DTIMING
 
+run:
+	./hybridsort.out r -p 0 -d 0
+
 clean:
 	rm -f  hybridsort.out

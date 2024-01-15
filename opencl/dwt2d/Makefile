@@ -40,6 +40,9 @@ dwt2d:
 		$(OUTPUT) \
 		$(OCL_LIB)
 
+run:
+	./dwt2d.out rgb.bmp -i ../../data/dwt2d -D 1024x1024 -f -5 -l 3 -p 0 -d 0
+
 clean:	
 	rm -rf *.o dwt2d.out
 	rm *.bmp.dwt.*

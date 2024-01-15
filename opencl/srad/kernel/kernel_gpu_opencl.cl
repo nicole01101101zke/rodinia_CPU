@@ -6,7 +6,24 @@
 //	MAIN FUNCTION HEADER
 //======================================================================================================================================================150
 
-#include "../main.h"
+// clBuildProgram compiler cannot link this file for some reason, so had to redefine constants and structures below
+// #include ../main.h						// (in directory specified to compiler)			main function header
+
+//======================================================================================================================================================150
+//	DEFINE (had to bring from ../main.h here because feature of including headers in clBuildProgram does not work for some reason)
+//======================================================================================================================================================150
+
+#define fp float
+
+#ifdef RD_WG_SIZE_0_0
+        #define NUMBER_THREADS RD_WG_SIZE_0_0
+#elif defined(RD_WG_SIZE_0)
+        #define NUMBER_THREADS RD_WG_SIZE_0
+#elif defined(RD_WG_SIZE)
+        #define NUMBER_THREADS RD_WG_SIZE
+#else
+        #define NUMBER_THREADS 256
+#endif
 
 //======================================================================================================================================================150
 //	End

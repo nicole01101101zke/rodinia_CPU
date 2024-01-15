@@ -101,6 +101,9 @@ main.o:		main.h \
 						-o ./util/opencl/opencl.o \
 						-O3
 
+run:
+	./lavaMD.out -boxes1d 50 -p 0 -d 0
+
 # delete all object and executable files
 clean:
 	rm	*.o lavaMD.out \

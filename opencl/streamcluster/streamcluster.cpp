@@ -977,7 +977,7 @@ int main(int argc, char **argv)
   
 #ifdef  TIMING
 	tvsub(&tv_close_end, &tv_total_start, &tv);
-	total_time = tv.tv_sec * 1000.0 + (float) tv.tv_usec / 1000.0;
+	total_time = tv.tv_sec + (float) tv.tv_usec / 1000000.0;
 
 	printf("Init: %f\n", init_time);
 	printf("MemAlloc: %f\n", mem_alloc_time);

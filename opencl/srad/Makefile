@@ -94,6 +94,9 @@ OCL_LIB = -lOpenCL
 			-O3 \
 			$(OCL_INC_DIR)
 
+run:
+	./srad.out -n 1000 -l 0.5 -s 502 458 -p 0 -d 0
+
 clean:
 	rm	./*.o srad.out \
 		./kernel/*.o \

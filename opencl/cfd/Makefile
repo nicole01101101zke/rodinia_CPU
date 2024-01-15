@@ -32,5 +32,8 @@ ptx:$(SRC)
 res:$(SRC)
 	$(CC) $(KERNEL_DIM) $(SRC) -o $(EXE) -I$(OPENCL_INC) -L$(OPENCL_LIB)  -lOpenCL -D RES_MSG $(FLAGS)
 
+run:$(EXE)
+	./$(EXE) ../../data/cfd/fvcorr.domn.097K -t gpu -d 0
+
 clean: $(SRC)
 	rm -f $(EXE) $(EXE).linkinfo result*

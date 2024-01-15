@@ -37,5 +37,8 @@ kmeans.o: kmeans.c
 rmse.o: rmse.c
 	$(CC) $(CC_FLAGS) rmse.c -c
 
+run:
+	./kmeans.out -o -i ../../data/kmeans/819200.txt
+
 clean:
 	rm -f *.o *~ kmeans.out *.linkinfo
