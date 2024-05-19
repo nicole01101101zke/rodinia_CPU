@@ -143,7 +143,7 @@ double gettime() {
 	@return:	NULL
 	@date:		24/03/2011
 ------------------------------------------------------------*/
-void _clSetDevice(int idx) throw(string){
+void _clSetDevice(int idx) {
 	if(idx>(number_devices-1))
 	  throw(string(":invalid device ID:"));
 	device_id_inused = idx;
@@ -158,7 +158,7 @@ void _clSetDevice(int idx) throw(string){
 	@return:	prop
 	@date:		24/03/2011
 ------------------------------------------------------------*/
-void _clGetDeviceProperties(int idx, _clDeviceProp *prop) throw(string){
+void _clGetDeviceProperties(int idx, _clDeviceProp *prop) {
    
    oclHandles.cl_status= clGetDeviceInfo(oclHandles.devices[idx], CL_DEVICE_NAME, 100, prop->device_name, NULL);
    
@@ -276,7 +276,7 @@ void _clCmdParams(int argc, char* argv[]){
 		get the number of devices and devices have no relationship with context
 	@date:		24/03/2011
 ------------------------------------------------------------*/
-void _clInit(int platform_id, int device_id)throw(string){
+void _clInit(int platform_id, int device_id){
 
 #ifdef PROFILE_
 	TE = 0;
@@ -620,7 +620,7 @@ void _clRelease()
 	@return:	mem_d
 	@date:		24/03/2011
 ------------------------------------------------------------*/
-cl_mem _clMalloc(int size) throw(string){
+cl_mem _clMalloc(int size) {
 #ifdef PROFILE_
 	double t1 = gettime();
 #endif
@@ -669,7 +669,7 @@ cl_mem _clMalloc(int size) throw(string){
 	@date:		06/04/2011
 ------------------------------------------------------------*/
 
-void* _clMallocHost(int size)throw(string){
+void* _clMallocHost(int size){
 	void * mem_h;
 	oclHandles.pinned_mem_out = clCreateBuffer(oclHandles.context, CL_MEM_READ_WRITE|CL_MEM_ALLOC_HOST_PTR, size, NULL, &oclHandles.cl_status);
 #ifdef ERRMSG
@@ -830,7 +830,7 @@ void _clFreeHost(int io, void * mem_h){
 	@return:	NULL
 	@date:		17/01/2011
 ------------------------------------------------------------*/
-void _clMemcpyH2D(cl_mem dst, const void *src, int size) throw(string){
+void _clMemcpyH2D(cl_mem dst, const void *src, int size) {
 #ifdef PROFILE_
 	double t1 = gettime();
 #endif
@@ -886,7 +886,7 @@ void _clMemcpyH2D(cl_mem dst, const void *src, int size) throw(string){
 	@return:	NULL
 	@date:		17/01/2011
 ------------------------------------------------------------*/
-void _clMemcpyD2H(void * dst, cl_mem src, int size) throw(string){
+void _clMemcpyD2H(void * dst, cl_mem src, int size) {
 #ifdef PROFILE_
 	double t1 = gettime();
 #endif
@@ -941,7 +941,7 @@ void _clMemcpyD2H(void * dst, cl_mem src, int size) throw(string){
 	@return:	NULL
 	@date:		27/03/2011
 ------------------------------------------------------------*/
-void _clMemcpyD2D(cl_mem dst, cl_mem src, int size) throw(string){
+void _clMemcpyD2D(cl_mem dst, cl_mem src, int size) {
 #ifdef PROFILE_
 	double t1 = gettime();
 #endif
@@ -1003,7 +1003,7 @@ void _clMemcpyD2D(cl_mem dst, cl_mem src, int size) throw(string){
 	@return:	NULL
 	@date:		03/04/2011
 ------------------------------------------------------------*/
-void _clSetArgs(int kernel_id, int arg_idx, void * d_mem, int size = 0) throw(string){
+void _clSetArgs(int kernel_id, int arg_idx, void * d_mem, int size = 0) {
 	if(!size){ // normal device memory object
 		oclHandles.cl_status = clSetKernelArg(oclHandles.kernel[kernel_id], arg_idx, sizeof(d_mem), &d_mem);
 #ifdef ERRMSG
@@ -1081,7 +1081,7 @@ void _clSetArgs(int kernel_id, int arg_idx, void * d_mem, int size = 0) throw(st
 #endif
 	}
 }
-void _clFinish() throw(string){
+void _clFinish(){
 	oclHandles.cl_status = clFinish(oclHandles.queue);	
 #ifdef ERRMSG
 	if(oclHandles.cl_status!=CL_SUCCESS){
@@ -1113,7 +1113,7 @@ void _clFinish() throw(string){
 	@return:	NULL
 	@date:		03/04/2011
 ------------------------------------------------------------*/
-void _clInvokeKernel(int kernel_id, int work_items, int work_group_size) throw(string){
+void _clInvokeKernel(int kernel_id, int work_items, int work_group_size) {
 #ifdef PROFILE_
 	double t1 = gettime();
 #endif
@@ -1229,7 +1229,7 @@ void _clInvokeKernel(int kernel_id, int work_items, int work_group_size) throw(s
 	@date:		03/04/2011
 ------------------------------------------------------------*/
 
-void _clMemset(cl_mem mem_d, short val, int number_bytes)throw(string){
+void _clMemset(cl_mem mem_d, short val, int number_bytes){
 #ifdef PROFILE_
 	double t1 = gettime();
 #endif
@@ -1351,7 +1351,7 @@ void _clMemset(cl_mem mem_d, short val, int number_bytes)throw(string){
 	@return:	NULL
 	@date:		03/04/2011
 ------------------------------------------------------------*/
-void _clInvokeKernel2D(int kernel_id, int range_x, int range_y, int group_x, int group_y) throw(string){
+void _clInvokeKernel2D(int kernel_id, int range_x, int range_y, int group_x, int group_y) {
 #ifdef PROFILE_
 	double t1 = gettime();
 #endif
@@ -1462,7 +1462,7 @@ void _clInvokeKernel2D(int kernel_id, int range_x, int range_y, int group_x, int
 	@date:		03/04/2011
 ------------------------------------------------------------*/
 
-void _clFree(cl_mem ob) throw(string){
+void _clFree(cl_mem ob){
 #ifdef PROFILE_
 	double t1 = gettime();	
 #endif
