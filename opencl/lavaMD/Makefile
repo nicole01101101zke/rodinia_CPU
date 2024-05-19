@@ -106,7 +106,7 @@ run:
 
 # delete all object and executable files
 clean:
-	rm	*.o lavaMD.out \
+	rm -f	*.o lavaMD.out \
 		./kernel/*.o \
 		./util/num/*.o \
 		./util/timer/*.o \

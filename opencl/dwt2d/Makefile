@@ -45,5 +45,5 @@ run:
 
 clean:	
 	rm -rf *.o dwt2d.out
-	rm *.bmp.dwt.*
+	rm -f *.bmp.dwt.*
 
